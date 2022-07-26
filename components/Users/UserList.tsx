@@ -1,18 +1,15 @@
 import React from "react";
-import { List, Datagrid, TextField, EmailField, UrlField } from "react-admin";
-import MyUriField from "../UI/MyUriField";
+import { List, Datagrid, TextField, EmailField, BooleanField } from "react-admin";
 
 export const UserList = () => (
     <List>
         <Datagrid rowClick="edit">
             <TextField source="id" />
-            <TextField source="name" />
-            {/* <TextField source="username" /> */}
-            <EmailField source="email" />
-            {/* <TextField source="address.street" /> */}
-            <TextField source="phone" />
-            <MyUriField source="website" />
-            <TextField source="company.name" />
+            <TextField source="firstName" />
+            <TextField source="lastName" />
+            <TextField source="password" />
+            <TextField source="email" />
+            <BooleanField source="isActive" />
         </Datagrid>
     </List>
 );

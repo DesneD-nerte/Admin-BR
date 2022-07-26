@@ -13,23 +13,30 @@ import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import Dashboard from "./Dashboard";
 import authProvider from "./authProvider";
+import { UserCreate } from "../components/Users/UserCreate";
+import { UserEdit } from "../components/Users/UserEdit";
+import { ItemList } from "../components/Items/ItemList";
+import { ItemCreate } from "../components/Items/ItemCreate";
+import { ItemEdit } from "../components/Items/ItemEdit";
 
-// const dataProvider = simpleRestProvider(
-//     "http://localhost:5000",
-//     fetchUtils.fetchJson,
-//     "X-Total-Count"
-// );
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+const dataProvider = simpleRestProvider("http://localhost:5000");
+// const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 const App = () => (
     <Admin dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}>
-        <Resource name="users" list={UserList} icon={UserIcon}></Resource>
         <Resource
-            name="posts"
-            list={PostList}
-            edit={PostEdit}
-            create={PostCreate}
+            name="items"
+            list={ItemList}
+            create={ItemCreate}
+            edit={ItemEdit}
             icon={PostIcon}
+        ></Resource>
+        <Resource
+            name="users"
+            list={UserList}
+            create={UserCreate}
+            edit={UserEdit}
+            icon={UserIcon}
         ></Resource>
     </Admin>
 );
