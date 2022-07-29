@@ -4,20 +4,22 @@ import { Admin, Resource, ListGuesser, fetchUtils, EditGuesser } from "react-adm
 
 import simpleRestProvider from "ra-data-simple-rest";
 import jsonServerProvider from "ra-data-json-server";
-import { UserList } from "../components/Users/UserList";
-import { PostList } from "../components/Posts/PostList";
-import { PostEdit } from "../components/Posts/PostEdit";
-import { PostCreate } from "../components/Posts/PostCreate";
+import { UserList } from "../Users/UserList";
+import { PostList } from "../Posts/PostList";
+import { PostEdit } from "../Posts/PostEdit";
+import { PostCreate } from "../Posts/PostCreate";
 
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import Dashboard from "./Dashboard";
 import authProvider from "./authProvider";
-import { UserCreate } from "../components/Users/UserCreate";
-import { UserEdit } from "../components/Users/UserEdit";
-import { ItemList } from "../components/Items/ItemList";
-import { ItemCreate } from "../components/Items/ItemCreate";
-import { ItemEdit } from "../components/Items/ItemEdit";
+import { UserCreate } from "../Users/UserCreate";
+import { UserEdit } from "../Users/UserEdit";
+import { ItemList } from "../Items/ItemList";
+import { ItemCreate } from "../Items/ItemCreate";
+import { ItemEdit } from "../Items/ItemEdit";
+
+import pantsPromo from "../pants/pants-promo";
 
 const dataProvider = simpleRestProvider("http://localhost:5000");
 // const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
@@ -30,6 +32,11 @@ const App = () => (
             create={ItemCreate}
             edit={ItemEdit}
             icon={PostIcon}
+        ></Resource>
+        <Resource
+            name="pants-promo"
+            options={{ label: "Pants Promo" }}
+            {...pantsPromo}
         ></Resource>
         <Resource
             name="users"
